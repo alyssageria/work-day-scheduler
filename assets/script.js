@@ -27,12 +27,11 @@ $(function () {
 
     //gets the current hour
     var currentHour = dayjs().get('hour');
-    console.log(currentHour);
 
     //compares the hour to the div hour and adds past, present or future class and apply's css styles accordingly
     $(".time-block").each(function () {
-        var divHour = $(this).attr("id").split("-")[1];
-        if (currentHour == divHour) {
+        var divHour = parseInt($(this).attr("id").split("-")[1]);
+        if (currentHour === divHour) {
             $(this).addClass("present");
         } else if (currentHour > divHour) {
             $(this).addClass("past");
@@ -41,4 +40,3 @@ $(function () {
         }
     });
 });
-
